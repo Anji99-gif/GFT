@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>Parties</span>
+  <span class="spacer"></span>
+      <button mat-raised-button (click)="openPartyForm()">
+        <mat-icon>add</mat-icon> New
+      </button> &nbsp;
+      <button mat-raised-button (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon> Logout
+      </button>
+</mat-toolbar>
+<app-party-list [parties]="parties" (refreshList)="getParties()"></app-party-list>

@@ -1,0 +1,59 @@
+
+<table mat-table [dataSource]="parties" >
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let party"> {{ party.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="company_name">
+    <th mat-header-cell *matHeaderCellDef> Company Name </th>
+    <td mat-cell *matCellDef="let party"> {{ party.company_name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="mobile_no">
+    <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+    <td mat-cell *matCellDef="let party"> {{ party.mobile_no }} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let party"> {{ party.email }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="remark">
+    <th mat-header-cell *matHeaderCellDef> Remark </th>
+    <td mat-cell *matCellDef="let party"> {{ party.remark }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="credit_limit">
+    <th mat-header-cell *matHeaderCellDef> Credit Limit </th>
+    <td mat-cell *matCellDef="let party"> {{ party.credit_limit }} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="gstin">
+    <th mat-header-cell *matHeaderCellDef> GSTIN </th>
+    <td mat-cell *matCellDef="let party"> {{ party.gstin }} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let party">
+      <button mat-button (click)="editParty(party)">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-button color="warn" (click)="viewParty(party)">
+        <mat-icon>description</mat-icon> View
+      </button>
+      <button mat-button color="warn" (click)="deleteParty(party.id)">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
